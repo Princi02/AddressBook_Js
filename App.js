@@ -145,6 +145,22 @@ class AddressBook {
         console.log('Sorted Contacts:', this.contacts.map(contact => contact.displayContact()));
     }
 
+    //sort person by city
+    sortByCity() {
+        this.contacts.sort((a, b) => a.city.localeCompare(b.city));
+        console.log('Sorted Contacts by city:', this.contacts.map(contact => contact.displayContact()));
+    }
+    //sort person by state
+    sortByState() {
+        this.contacts.sort((a, b) => a.state.localeCompare(b.state));
+        console.log('Sorted Contacts by state:', this.contacts.map(contact => contact.displayContact()));
+    }
+    //sort person by zip
+    sortByZip() {
+        this.contacts.sort((a, b) => a.zip.localeCompare(b.zip));
+        console.log('Sorted Contacts by zip:', this.contacts.map(contact => contact.displayContact()));
+    }
+
 }
 
 const addressBook = new AddressBook();
@@ -181,3 +197,9 @@ console.log("Count of contacts by city and state:", addressBook.getContactCountB
 
 // Sorting contacts by name
 addressBook.sortContactsByName();
+
+
+// Sorting contacts by city, state, and zip
+addressBook.sortByCity();
+addressBook.sortByState();
+addressBook.sortByZip();
