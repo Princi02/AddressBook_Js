@@ -123,6 +123,22 @@ class AddressBook {
         return { groupedByCity, groupedByState };
     }
 
+
+    //count persons by city or state name
+    getContactCountByCityOrState() {
+        const countByCity = this.contacts.reduce((acc, contact) => {
+            acc[contact.city] = (acc[contact.city] || 0) + 1;
+            return acc;
+        }, {});
+
+        const countByState = this.contacts.reduce((acc, contact) => {
+            acc[contact.state] = (acc[contact.state] || 0) + 1;
+            return acc;
+        }, {});
+
+        return { countByCity, countByState };
+    }
+
 }
 
 const addressBook = new AddressBook();
@@ -153,3 +169,6 @@ console.log("Contacts in StateName:", addressBook.searchByCityOrState("UttarPrad
 
 //viewing persons by city or state
 console.log("Persons grouped by city and state:", addressBook.viewPersonsByCityOrState());
+
+//getting count by city and state
+console.log("Count of contacts by city and state:", addressBook.getContactCountByCityOrState());
